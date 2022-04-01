@@ -16,7 +16,6 @@ export default function App(){
         image: null,
         token: null
    });
-
     return (
         <>
         <LogadoContext.Provider value={{login,setLogin}}>

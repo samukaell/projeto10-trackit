@@ -1,33 +1,32 @@
-import { StyledHabito } from "./styles";
 import { useState } from "react";
-import HabitoSalvo from '../HabitoSalvo'
+import { postHabito } from "../../../service";
+import { useContext } from 'react';
+import LogadoContext from '../../../util/LogadoContext';
 import Dia from "./Dia";
+
+import { StyledHabito } from "./styles";
 
 export default function CriarHabito(props){
     //Para criação dos dias
     const diaSemana = ['D','S','T','Q','Q','S','S'];
     //Salvar o habito
     const {add,setAdd} = props;    
-    const {habitos,setHabitos} = props;
+    //Atualizar habitos
+    const {atualizar,setAtualizar} = props;
     //Partes habito
     const [nomeHabito,setNomeHabito] = useState("");
     const [diasHabito,setDiasHabito] = useState([]);
+    //token
+    const { login } = useContext(LogadoContext);
 
-    function salvar(){
-        if(nomeHabito !== null){
-            
-            setHabitos(
-                <HabitoSalvo
-                    titulo={nomeHabito}
-                    listaSelecionado={diasHabito}
-                    key={nomeHabito+diasHabito[0]}
-                />
-            )
-            
+    async function salvar(){
+        if(nomeHabito !== ""){
+            //chamar o post 
+            const retorno = await postHabito({name: nomeHabito,days: diasHabito},login.token);
+            setAdd(!add);
+            setAtualizar(!atualizar);
         }
     }
-
-    
 
     return(
         <StyledHabito>

@@ -5,13 +5,13 @@ const StyledHabito= styled.div`
     background: #FFFFFF;
     border-radius: 5px;
     width: 340px;
-    height: 91px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     .conatiner{
         margin-top: 10px;
+        margin-bottom: 15px;
         width: 90%;
     }
     .caixa-dias{

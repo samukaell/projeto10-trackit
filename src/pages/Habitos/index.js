@@ -7,7 +7,6 @@ import Footer from "../../components/Footer";
 export default function Habitos(){
 
     const {login} = useContext(LogadoContext)
-    console.log("login teste->",login);
 
     return (
         <>

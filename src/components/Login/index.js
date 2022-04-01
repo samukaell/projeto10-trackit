@@ -21,14 +21,13 @@ export default function Login(props){
 
     async function handleSubmitLogin(e){
         e.preventDefault();
-        navigate('/habitos');
 
         const retorno = await postLogin({
             email: login,
             password: senha
         }); 
         setLogin(retorno)
-
+        navigate('/habitos');
     }
     function handleSubmitCadastro(e){
         e.preventDefault();

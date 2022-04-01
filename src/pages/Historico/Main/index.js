@@ -3,6 +3,7 @@ import {StyledMain} from './styles'
 
 
 export default function Main(){
+    console.log("Historico!");
     return (
         <StyledMain>
             <SubTopo

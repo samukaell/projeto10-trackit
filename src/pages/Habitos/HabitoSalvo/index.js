@@ -1,10 +1,17 @@
+import { useContext } from 'react';
+import LogadoContext from '../../../util/LogadoContext';
+import { deleteHabito } from "../../../service";
 import { IoTrashOutline } from "react-icons/io5";
 import { StyledHabito } from "./styles";
 
 export default function HabitoSalvo(props){
 
-    const {titulo,listaSelecionado} = props;
+    const {titulo,listaSelecionado,idHabito} = props;
+    const {atualizar,setAtualizar} = props;
     const diaSemana = ['D','S','T','Q','Q','S','S'];
+
+    //token 
+    const { login } = useContext(LogadoContext);
 
     function Dia(props){
         const {diaSelecionado,dia} = props;
@@ -25,7 +32,6 @@ export default function HabitoSalvo(props){
 
     function rederizarDias(){
         let semana = [];
-        console.log("Deveria valer->",listaSelecionado);
         diaSemana.map((dia,index)=>{
             if(listaSelecionado.includes(index)){
                 semana.push(<Dia  dia={dia} diaSelecionado={true} key={index}/>)
@@ -37,12 +43,18 @@ export default function HabitoSalvo(props){
         return semana;
     }
 
+    async function deletar(){
+        const retorno = await deleteHabito(login.token,idHabito);
+        console.log("Deletar!",retorno);
+        setAtualizar(!atualizar);
+    }   
+
     return(
         <StyledHabito>
                 <div className="conatiner">
                     <div className="caixa-titulo">
                         <p>{titulo}</p>
-                        <IoTrashOutline className="icone-lixo"/>
+                        <IoTrashOutline className="icone-lixo" onClick={()=>{deletar()}}/>
                     </div>
                     <div className="caixa-dias">
                         {rederizarDias()}
