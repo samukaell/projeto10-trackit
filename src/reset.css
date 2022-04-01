@@ -47,5 +47,6 @@ table {
 	border-spacing: 0;
 }
 a{
+	color: currentColor;
 	text-decoration-line: none;
 }

@@ -7,13 +7,13 @@ const StyledMain = styled.main`
     align-items: center;
 
     .info{
-        margin-top: 30px;
         font-family: 'Lexend Deca';
         font-style: normal;
         font-weight: 400;
         font-size: 17.976px;
         color: #666666;
     }
+    
 `;
 
-export {StyledMain}
+export { StyledMain }
