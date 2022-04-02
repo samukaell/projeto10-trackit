@@ -18,10 +18,12 @@ export default function SubTopo(props){
     }else{
         return(
             <StyledMain>
-                <div className="titulo-habitos">
-                    <p className="titulo">{titulo}</p>
+                <div className='container'>
+                    <div className="titulo-habitos">
+                        <p className="titulo">{titulo}</p>
+                    </div>
+                    <p className='subtitulo'>{subtitulo}</p>
                 </div>
-                <p className='subtitulo'>{subtitulo}</p>
             </StyledMain>
         );
     }

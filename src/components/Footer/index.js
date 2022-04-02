@@ -3,9 +3,11 @@ import { CircularProgressbar ,buildStyles} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { StyledFooter } from "./styles"
 
-export default function Footer(){
+export default function Footer(props){
+    
+    const {porcentagem} = props;
+
     const dia = 'Hoje';
-    const percentage = 66;
 
     return (
         <StyledFooter>
@@ -16,7 +18,7 @@ export default function Footer(){
                 <Link to={"/hoje"}>
                     <div style={{ width: 91, height: 91 }}>
                         <CircularProgressbar
-                            value={percentage}
+                            value={porcentagem}
                             text={dia}
                             background
                             backgroundPadding={6}

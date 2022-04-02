@@ -6,10 +6,14 @@ const StyledMain = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    .container{
+        width: 90%;
+    }
 
     .titulo-habitos{
-        margin: 20px 0;
         width: 90%;
+        margin: 20px 0;
         display: flex;
         justify-content: space-between;
 
@@ -29,7 +33,12 @@ const StyledMain = styled.main`
         }
     } 
     .subtitulo{
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22.976px;
         color: #BABABA;
+
     }
 `;
 

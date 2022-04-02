@@ -108,3 +108,27 @@ export const deleteHabito = async (token,id) =>{
     }
     
 }
+
+export const getHoje = async (token) =>{   
+
+    const config = {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    }
+
+    const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today";
+
+    try {
+        const resposta = await axios.get(URL,config);
+        const {data} = resposta;
+        console.log("Seus habitos para Hoje ->", data);
+        const retorno = data;
+        return retorno;
+    }
+    catch(err) {
+        console.log("Puts! deu ruim! ->",err);
+        return null;
+    }
+	
+}
