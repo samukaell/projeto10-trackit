@@ -44,9 +44,11 @@ export default function HabitoSalvo(props){
     }
 
     async function deletar(){
-        const retorno = await deleteHabito(login.token,idHabito);
-        console.log("Deletar!",retorno);
-        setAtualizar(!atualizar);
+        if (window.confirm("Você realmente quer Apagar o Habito?")) {
+            const retorno = await deleteHabito(login.token,idHabito);
+            console.log("Deletar!",retorno);
+            setAtualizar(!atualizar);
+        }
     }   
 
     return(
