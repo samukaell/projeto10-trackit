@@ -16,15 +16,21 @@ export default function CriarHabito(props){
     //Partes habito
     const [nomeHabito,setNomeHabito] = useState("");
     const [diasHabito,setDiasHabito] = useState([]);
+    //Habilitar Botao
+    const [habilitar,setHabilitar] = useState(false);
     //token
     const { login } = useContext(LogadoContext);
 
-    async function salvar(){
+    async function salvar(){   
         if(nomeHabito !== ""){
+            setHabilitar(!habilitar);
             //chamar o post 
             const retorno = await postHabito({name: nomeHabito,days: diasHabito},login.token);
-            setAdd(!add);
-            setAtualizar(!atualizar);
+            if(retorno !== null){
+                setHabilitar(!habilitar);
+                setAdd(!add);
+                setAtualizar(!atualizar);
+            }
         }
     }
 
@@ -50,7 +56,13 @@ export default function CriarHabito(props){
                 </div>
                 <div className="caixa-botoes">
                     <button className="cancelar" onClick={()=>{setAdd(!add)}}>Cancelar</button>
-                    <button className="salvar" onClick={()=>{salvar()}}>Salvar</button>
+                    <button className="salvar" disabled={habilitar} onClick={()=>{salvar()}}>
+                        {habilitar ? 
+                            ". . ."
+                            : 
+                            'Salvar'
+                        }
+                    </button>
                 </div>
         </StyledHabito>
     );

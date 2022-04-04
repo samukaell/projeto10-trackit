@@ -1,12 +1,13 @@
 import { Link,useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext,useState } from 'react';
 import { postCadastro,postLogin } from '../../service';
 import LogadoContext from '../../util/LogadoContext';
-
+import Loader from 'react-loader-spinner'
 import {StyledLogin} from './styles'
 import logo from '../../midia/Group 8.png'
 
 export default function Login(props){
+    const [habilitar,setHabilitar] = useState(false);
 
     const { setLogin } = useContext(LogadoContext);
 
@@ -21,12 +22,13 @@ export default function Login(props){
 
     async function handleSubmitLogin(e){
         e.preventDefault();
-
+        setHabilitar(!habilitar);
         const retorno = await postLogin({
             email: login,
             password: senha
         }); 
         if(retorno !== null){
+            setHabilitar(!habilitar);
             setLogin(retorno)
             navigate('/habitos');
         }else{
@@ -91,7 +93,13 @@ export default function Login(props){
                     <input className="input-senha" type="password"  placeholder="senha" required
                         value={senha} onChange={e => definirSenha(e.target.value)}
                     />
-                    <button className="botao-input" type='subimit'>Entrar</button>
+                    <button className="botao-input" disabled={habilitar} type='subimit'>
+                        {habilitar ? 
+                            "Loadiong . . ."
+                            : 
+                            'Entrar'
+                        }
+                    </button>
                 </form>
 
                 <Link to={"/cadastro"}>
