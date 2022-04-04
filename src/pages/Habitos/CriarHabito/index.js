@@ -30,6 +30,8 @@ export default function CriarHabito(props){
                 setHabilitar(!habilitar);
                 setAdd(!add);
                 setAtualizar(!atualizar);
+            }else{
+                alert("Ops, ocorreu um erro, por favor tente novamenete!");
             }
         }
     }

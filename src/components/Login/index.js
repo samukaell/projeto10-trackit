@@ -8,6 +8,7 @@ import logo from '../../midia/Group 8.png'
 
 export default function Login(props){
     const [habilitar,setHabilitar] = useState(false);
+    const [habilitarCad,setHabilitarCad] = useState(false);
 
     const { setLogin } = useContext(LogadoContext);
 
@@ -35,16 +36,24 @@ export default function Login(props){
             alert("Seu endereço de email ou senha estão incorretos");
         }
     }
-    function handleSubmitCadastro(e){
+    async function handleSubmitCadastro(e){
         e.preventDefault();
-        navigate('/');
-
-        postCadastro({
+        setHabilitarCad(!habilitarCad);
+        
+        
+        const  retorno = await postCadastro({
             email: email,
             name: name,
             image: image,
             password: password
         })
+
+        if(retorno !== null){
+            setHabilitarCad(!habilitarCad);
+            navigate('/');
+        }else{
+            alert("Por favor preencha os campos novamente.");
+        }
         
     }
 
@@ -56,19 +65,25 @@ export default function Login(props){
                     <img src={logo} alt = "Logo"/>
                 </div>
                 <form className="input-inicio" onSubmit={handleSubmitCadastro}>
-                    <input className="input-email" type="email"  placeholder="email" required
+                    <input className="input-email" type="email"  placeholder="email" disabled={habilitar} required
                         value={email} onChange={e => setEmail(e.target.value)}
                     />
-                    <input className="input-senha" type="password"  placeholder="senha" required
+                    <input className="input-senha" type="password"  placeholder="senha" disabled={habilitar} required
                         value={password} onChange={e => setPassword(e.target.value)}
                     />
-                    <input className="input-nome" type="text"  placeholder="Nome" required
+                    <input className="input-nome" type="text"  placeholder="Nome" disabled={habilitar} required
                         value={name} onChange={e => setName(e.target.value)}
                     />
-                    <input className="input-foto" type="url"  placeholder="foto" required
+                    <input className="input-foto" type="url"  placeholder="foto" disabled={habilitar} required
                         value={image} onChange={e => setImage(e.target.value)}
                     />
-                    <button className="botao-input" type='subimit'>Entrar</button>
+                    <button className="botao-input" disabled={habilitar} type='subimit'>
+                        {habilitarCad ? 
+                            "Loadiong . . ."
+                            : 
+                            'Entrar'
+                        }
+                    </button>
                 </form>
 
                 <Link to={"/"}>

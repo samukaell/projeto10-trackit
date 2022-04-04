@@ -1,18 +1,18 @@
 import axios from "axios";
 
-export const postCadastro = (objeto) =>{
+export const postCadastro = async (objeto) =>{
     const URL = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up';
     
-    const requisicao = axios.post(URL,objeto);
-    requisicao.then((resposta)=>{
+    try {
+        const resposta = await axios.post(URL,objeto);
         const {data} = resposta;
         console.log("Cadastro ->", data);
         return data;
-    });
-    requisicao.catch((err)=>{
+    }
+    catch(err) {
         console.log(err.resposta);
         return null;
-    })
+    }
     
 }
 
