@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { CircularProgressbar ,buildStyles} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-import { useContext } from 'react';
+import { useContext,useEffect } from 'react';
 import LogadoContext from '../../util/LogadoContext';
 import ProgressoContext from '../../util/ProgressoContext';
 import { getHoje } from '../../service';
@@ -10,7 +10,8 @@ import { getHoje } from '../../service';
 import { StyledFooter } from "./styles"
 
 
-export default function Footer(){   
+export default function Footer(props){   
+    const {atualizar} = props;
     const dia = 'Hoje';
 
     //token 
@@ -37,7 +38,10 @@ export default function Footer(){
         return Math.round((valor/total)*100);
     }
 
-    carregarHabitosHoje();
+    useEffect(() => {
+        carregarHabitosHoje();
+    }, [atualizar]);
+    
 
     return (
         <StyledFooter>

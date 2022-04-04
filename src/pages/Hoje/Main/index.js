@@ -9,10 +9,10 @@ import Atividades from "../Atividade"
 
 import { StyledMain } from "./styled"
 
-export default function Main(){
-
+export default function Main(props){
+    const {atualizar,setAtualizar} = props;
     const [habitos,setHabitos] = useState([]);
-    const [atualizar,setAtualizar] = useState(true);
+
 
     //token 
     const { login } = useContext(LogadoContext);
@@ -59,6 +59,8 @@ export default function Main(){
                 return(
                     <Atividades
                         titulo={hoje.name}
+                        atualizar ={atualizar}
+                        setAtualizar = {setAtualizar}
                         sequencia = {hoje.currentSequence}
                         recorde = {hoje.highestSequence}
                         done={hoje.done}

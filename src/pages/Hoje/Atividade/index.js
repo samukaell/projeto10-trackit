@@ -7,6 +7,7 @@ import { StyledAtividade } from "./styles";
 import { IoCheckbox } from "react-icons/io5";
 
 export default function Atividades(props){
+    const {atualizar,setAtualizar} = props;
     //token
     const { login } = useContext(LogadoContext);
 
@@ -17,15 +18,15 @@ export default function Atividades(props){
         const retorno = await postDone(login.token,id);
         console.log("ID->"+id+"Token->"+login.token);
         setFeito(!feito);
+        setAtualizar(!atualizar);
     }
 
     async function naoEstaFeito(){
         const retorno = await postNotDone(login.token,id);
         console.log("ID->"+id+"Token->"+login.token);
         setFeito(!feito);
+        setAtualizar(!atualizar);
     }
-
-    console.log("Done ->",done);
 
     if(feito){
         return(
