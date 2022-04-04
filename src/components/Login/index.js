@@ -87,10 +87,10 @@ export default function Login(props){
                     <img src={logo} alt = "Logo"/>
                 </div>
                 <form className="input-inicio" onSubmit={handleSubmitLogin}>
-                    <input className="input-email" type="email"  placeholder="email" required
+                    <input className="input-email" type="email"  placeholder="email" disabled={habilitar} required
                         value={login} onChange={e => definirLogin(e.target.value)}
                     />
-                    <input className="input-senha" type="password"  placeholder="senha" required
+                    <input className="input-senha" type="password"  placeholder="senha" disabled={habilitar} required
                         value={senha} onChange={e => definirSenha(e.target.value)}
                     />
                     <button className="botao-input" disabled={habilitar} type='subimit'>
