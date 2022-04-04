@@ -2,7 +2,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import { useContext,useState } from 'react';
 import { postCadastro,postLogin } from '../../service';
 import LogadoContext from '../../util/LogadoContext';
-import Loader from 'react-loader-spinner'
+import {ThreeDots} from 'react-loader-spinner'
 import {StyledLogin} from './styles'
 import logo from '../../midia/Group 8.png'
 
@@ -79,7 +79,7 @@ export default function Login(props){
                     />
                     <button className="botao-input" disabled={habilitar} type='subimit'>
                         {habilitarCad ? 
-                            "Loadiong . . ."
+                            <ThreeDots color="#FFFFFF" height={30} width={30} />
                             : 
                             'Entrar'
                         }
@@ -110,7 +110,7 @@ export default function Login(props){
                     />
                     <button className="botao-input" disabled={habilitar} type='subimit'>
                         {habilitar ? 
-                            "Loadiong . . ."
+                            <ThreeDots color="#FFFFFF" height={30} width={30} />
                             : 
                             'Entrar'
                         }

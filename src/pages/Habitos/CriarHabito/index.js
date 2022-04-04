@@ -2,6 +2,7 @@ import { useState } from "react";
 import { postHabito } from "../../../service";
 import { useContext } from 'react';
 import LogadoContext from '../../../util/LogadoContext';
+import {ThreeDots} from 'react-loader-spinner'
 import Dia from "./Dia";
 
 import { StyledHabito } from "./styles";
@@ -60,7 +61,7 @@ export default function CriarHabito(props){
                     <button className="cancelar" onClick={()=>{setAdd(!add)}}>Cancelar</button>
                     <button className="salvar" disabled={habilitar} onClick={()=>{salvar()}}>
                         {habilitar ? 
-                            ". . ."
+                            <ThreeDots color="#FFFFFF" height={30} width={30} />
                             : 
                             'Salvar'
                         }

@@ -78,6 +78,9 @@ const StyledHabito = styled.div`
         color: #52B6FF;
     }
     .salvar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 84px;
         height: 35px;
         background: #52B6FF;

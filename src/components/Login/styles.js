@@ -17,6 +17,7 @@ const StyledLogin = styled.main`
         flex-direction: column;
 
         input{
+
             width: 303px;
             height: 45px;
             background: #FFFFFF;
@@ -33,6 +34,9 @@ const StyledLogin = styled.main`
         }
 
         button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 303px;
             height: 45px;
             background: #52B6FF;
