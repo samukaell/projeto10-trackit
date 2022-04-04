@@ -132,3 +132,73 @@ export const getHoje = async (token) =>{
     }
 	
 }
+
+export const postDone = async (token,id) =>{
+    const URL = `https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}/check`;
+    console.log('A url ->',URL);
+    const config = {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    }
+
+    try {
+        const resposta = await axios.post(URL,"",config);
+        const {data} = resposta;
+        console.log("Habito marcado como feito ->", data);
+        const retorno = "Ok!"
+
+        return retorno;
+    }
+    catch(err) {
+        console.log("Puts! deu ruim! ->",err);
+        return null;
+    }
+}
+
+export const postNotDone = async (token,id) =>{
+    const URL = `https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}/uncheck`;
+
+    const config = {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    }
+
+    try {
+        const resposta = await axios.post(URL,"",config);
+        const {data} = resposta;
+        console.log("Habito Desmarcado como feito ->", data);
+        const retorno = "Ok!"
+
+        return retorno;
+    }
+    catch(err) {
+        console.log("Puts! deu ruim! ->",err);
+        return null;
+    }
+}
+
+export const getHistorico = async (token) =>{   
+
+    const config = {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    }
+
+    const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/history/daily";
+
+    try {
+        const resposta = await axios.get(URL,config);
+        const {data} = resposta;
+        console.log("Seus Historico ->", data);
+        const retorno = data;
+        return retorno;
+    }
+    catch(err) {
+        console.log("Puts! deu ruim! ->",err);
+        return null;
+    }
+	
+}

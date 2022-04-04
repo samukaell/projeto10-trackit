@@ -3,7 +3,7 @@ import { IoAddOutline } from "react-icons/io5";
 
 export default function SubTopo(props){
 
-    const {titulo,subtitulo,add,setAdd,ativo} = props;
+    const {titulo,subtitulo,add,setAdd,ativo,verde} = props;
 
     if(ativo){
         return(
@@ -12,7 +12,7 @@ export default function SubTopo(props){
                     <p className="titulo">{titulo}</p>
                     <IoAddOutline className="icone-add" onClick={()=>{setAdd(!add)}}/>
                 </div>
-                <p className='subtitulo'>{subtitulo}</p>
+                <p className='subtitulo normal'>{subtitulo}</p>
             </StyledMain>
         );
     }else{
@@ -21,8 +21,10 @@ export default function SubTopo(props){
                 <div className='container'>
                     <div className="titulo-habitos">
                         <p className="titulo">{titulo}</p>
-                    </div>
-                    <p className='subtitulo'>{subtitulo}</p>
+                    </div>          
+                    {verde  ? <p className='subtitulo verde'>{subtitulo}</p> 
+                            : <p className='subtitulo normal'>{subtitulo}</p>
+                    }
                 </div>
             </StyledMain>
         );

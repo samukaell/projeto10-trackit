@@ -2,6 +2,7 @@ import { useContext } from "react";
 import LogadoContext from "../../util/LogadoContext";
 import Header from "../../components/Header";
 import Main from './Main'
+import Espaco from '../../components/Espaco'
 import Footer from "../../components/Footer";
 
 export default function Hoje(){
@@ -15,9 +16,8 @@ export default function Hoje(){
                 nome = {login.name}
             />
             <Main/>
-            <Footer
-                porcentagem = {70}
-            />
+            <Espaco/>
+            <Footer/>
         </>
     )
 }

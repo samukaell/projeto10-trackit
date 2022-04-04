@@ -37,8 +37,13 @@ const StyledMain = styled.main`
         font-style: normal;
         font-weight: 400;
         font-size: 22.976px;
+    }
+    .normal{
         color: #BABABA;
+    }
 
+    .verde{
+       color: #8FC549;
     }
 `;
 

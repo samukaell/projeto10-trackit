@@ -2,20 +2,27 @@ import styled from "styled-components";
 
 const StyledMain = styled.main`
     width: 100%;
+    margin-bottom: 5px;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 
-    .info{
+    .name{
         font-family: 'Lexend Deca';
         font-style: normal;
         font-weight: 400;
-        font-size: 17.976px;
-        color: #666666;
+        color: #52B6FF;
     }
-    .container{
-        width: 80%;
+    .checkbox{
+        font-size: 20px;
     }
+    .feito{
+        color: #8FC549;
+    }
+    .naoFeito{
+        color: #BABABA;
+    }
+    
 `;
 
 export { StyledMain }
