@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledMain = styled.main`
 
-    width: 340px;
+    width: 60vw;
     margin-top: 20px;
     background: #FFFFFF;
     border-radius: 5px;

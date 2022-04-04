@@ -18,7 +18,6 @@ export default function Main(){
 
     async function carregarHabitos(){
         const retorno = await getHabitos(login.token);
-        console.log("Habitos carregados:",retorno);
         setHabitos(retorno);
         setCarregado(true);
     }

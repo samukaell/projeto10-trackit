@@ -28,7 +28,6 @@ export default function Dia(props){
         
         function selecionar(){
             setDiaSelecionado(!diaSelecionado);
-            console.log("Dias selecionados ->",diasHabito);
             salvarDias();
         }
 

@@ -26,8 +26,12 @@ export default function Login(props){
             email: login,
             password: senha
         }); 
-        setLogin(retorno)
-        navigate('/habitos');
+        if(retorno !== null){
+            setLogin(retorno)
+            navigate('/habitos');
+        }else{
+            alert("Seu endereço de email ou senha estão incorretos");
+        }
     }
     function handleSubmitCadastro(e){
         e.preventDefault();

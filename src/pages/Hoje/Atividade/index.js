@@ -16,14 +16,12 @@ export default function Atividades(props){
 
     async function estaFeito(){
         const retorno = await postDone(login.token,id);
-        console.log("ID->"+id+"Token->"+login.token);
         setFeito(!feito);
         setAtualizar(!atualizar);
     }
 
     async function naoEstaFeito(){
         const retorno = await postNotDone(login.token,id);
-        console.log("ID->"+id+"Token->"+login.token);
         setFeito(!feito);
         setAtualizar(!atualizar);
     }

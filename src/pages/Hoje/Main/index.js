@@ -21,7 +21,6 @@ export default function Main(props){
 
     async function carregarHabitosHoje(){
         const retorno = await getHoje(login.token);
-        console.log("Habitos de hoje ->:",retorno);
         setHabitos(retorno);
     }
 
