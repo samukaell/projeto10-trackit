@@ -12,7 +12,7 @@ import { StyledMain } from "./styled"
 export default function Main(props){
     const {atualizar,setAtualizar} = props;
     const [habitos,setHabitos] = useState([]);
-
+    const semana = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sabado'];
 
     //token 
     const { login } = useContext(LogadoContext);
@@ -29,28 +29,28 @@ export default function Main(props){
         carregarHabitosHoje();
     }, [atualizar]);
 
+
     function carregarProgresso(){
         if(progresso > 0){
             return(
                 <SubTopo
                     ativo = {false}
-                    titulo={`${"Talvez seja Segunda"}, ${dayjs().date()}/${dayjs().month()}`}
+                    titulo={`${semana[dayjs().day()]}, ${dayjs().date()}/${dayjs().month()}`}
                     verde = {true}
                     subtitulo = {`${progresso}% dos hábitos concluídos`}
                 />
             )
         }else{
-            <SubTopo
+            return(
+                <SubTopo
                     ativo = {false}
-                    titulo={`${"Talvez seja Segunda"}, ${dayjs().date()}/${dayjs().month()}`}
+                    titulo={`${semana[dayjs().day()]}, ${dayjs().date()}/${dayjs().month()}`}
                     verde = {false}
                     subtitulo = {'Nenhum hábito concluído ainda'}
                 />
+            )
         }
     }
-
-    let dia = dayjs().toDate().date;
-    console.log("Days ->: ", dayjs().format('{YYYY} MM-DDTHH:mm:ss SSS [Z] A'));
 
     return(
         <StyledMain>
