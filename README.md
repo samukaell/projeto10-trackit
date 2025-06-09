@@ -36,5 +36,5 @@
 ### 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/trackit.git
+git clone https://github.com/samukaell/trackit.git
 cd trackit
